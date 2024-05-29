@@ -2,7 +2,8 @@ import { Outlet, createBrowserRouter } from "react-router-dom"
 
 import { Suspense, lazy } from "react"
 
-const Test = lazy(() => import("../page/Test"))
+const Login = lazy(() => import("../page/Login"))
+const Register = lazy(() => import("../page/Register"))
 
 function Loading() {
   return <div>로딩중입니다.</div>
@@ -30,10 +31,18 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "test",
+        path: "login",
         element: (
           <Suspense fallback={<Loading />}>
-            <Test />
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: "register",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Register />
           </Suspense>
         ),
       },
